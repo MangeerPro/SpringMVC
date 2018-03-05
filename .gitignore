@@ -139,7 +139,7 @@ out/
 
 # JIRA plugin
 atlassian-ide-plugin.xml
-
+P
 # Cursive Clojure plugin
 .idea/replstate.xml
 
