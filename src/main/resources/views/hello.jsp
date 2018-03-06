@@ -8,10 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <html>
-  <head>
+<head>
     <title>$Title$</title>
-  </head>
-  <body>
-  Welcome to Spring MVC world
-  </body>
+</head>
+<body>
+Welcome to Spring MVC world
+</body>
 </html>
