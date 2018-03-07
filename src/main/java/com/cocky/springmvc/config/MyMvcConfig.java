@@ -1,4 +1,4 @@
-package com.cocky.springmvc;
+package com.cocky.springmvc.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

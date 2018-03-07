@@ -1,13 +1,12 @@
-package com.cocky.springmvc;
+package com.cocky.springmvc.web;
 
+import com.cocky.springmvc.config.MyMvcConfig;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
-import javax.servlet.Registration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRegistration;
 import javax.servlet.ServletRegistration.Dynamic;
 
 //  WebApplicationInitializer是Spring提供用来配置Servlet 3.0+配置的接口，
