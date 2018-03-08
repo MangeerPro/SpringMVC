@@ -13,7 +13,7 @@ public class DemoRestController {
         return new DemoObj(obj.getId() + 1, obj.getName() + "yy");  //返回的对象会自动转换为json
     }
 
-    @RequestMapping(value = "/getxml", produces = {"applicationxml/xml;charset=UTF-8"})
+    @RequestMapping(value = "/getxml", produces = {"application/xml;charset=UTF-8"})
     //返回的数据类型是xml
     public DemoObj getXml(DemoObj obj) {
         return new DemoObj(obj.getId() + 1, obj.getName() + "yy"); //直接返回对象，对象会自动转换为xml

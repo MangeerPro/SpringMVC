@@ -18,21 +18,21 @@ public class DemoAnnoController {
     public @ResponseBody
     String index(HttpServletRequest request) {
         //4、演示接受HttpServletRequest作为参数，当然也可以接受Response作为参数，此处@Response用在了返回值前面。
-        return "url:" + request.getRequestURL() + "can access";
+        return "url:" + request.getRequestURL() + " can access";
     }
 
     @RequestMapping(value = "/pathvar/{str}", produces = "text/plain;charset=UTF-8")
     //5、演示接受路径参数，并在方法参数前结合@PathVariable使用，路径为/anno/pathvar/xx
     public @ResponseBody
     String demoPathVar(@PathVariable String str, HttpServletRequest request) {
-        return "url:" + request.getRequestURL() + "can access, str: " + str;
+        return "url:" + request.getRequestURL() + " can access, str: " + str;
     }
 
     @RequestMapping(value = "/requestParam", produces = "text/plain;charset=UTF-8")
     //6、演示常规的request参数获取，访问路径为/anno/requestParam？id=1
     public @ResponseBody
     String passRequestParam(Integer id, HttpServletRequest request) {
-        return "url:" + request.getRequestURL() + "can access, id: " + id;
+        return "url:" + request.getRequestURL() + " can access, id: " + id;
     }
 
     @RequestMapping(value = "/obj", produces = "application/json;charset=UTF-8")
@@ -40,13 +40,13 @@ public class DemoAnnoController {
     @ResponseBody
     //8、ResponseBody可以用在方法上
     public String passObj(DemoObj obj, HttpServletRequest request) {
-        return "url:" + request.getRequestURL() + "can access, id:" + obj.toString();
+        return "url:" + request.getRequestURL() + " can access, id:" + obj.toString();
     }
 
     @RequestMapping(value = {"/name1", "/name2"}, produces = "text/plain;charset=UTF-8")
     //9、演示映射不同的路径到相同方法
     public @ResponseBody
     String remove(HttpServletRequest request) {
-        return "url:" + request.getRequestURL() + "can access";
+        return "url:" + request.getRequestURL() + " can access";
     }
 }
