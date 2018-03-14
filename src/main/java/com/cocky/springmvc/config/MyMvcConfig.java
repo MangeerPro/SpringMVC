@@ -1,14 +1,18 @@
 package com.cocky.springmvc.config;
 
+import com.cocky.springmvc.domain.CustomMessageConverter;
 import com.cocky.springmvc.interceptor.DemoInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+
+import java.util.List;
 
 @Configuration
 @ComponentScan("com.cocky.springmvc")
@@ -30,6 +34,15 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter{
         return multipartResolver;
     }
 
+    /**
+     * 增加自定义的HttpMessageConverter
+     * @return
+     */
+    @Bean
+    public CustomMessageConverter converters() {
+        return new CustomMessageConverter();
+    }
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/assets/**") /*对外暴露的访问路径*/ .addResourceLocations("classpath:/assets/") /*文件放置的目录*/;
@@ -46,6 +59,15 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter{
     }
 
     /**
+     * 添加自定义HttpMessageConverter
+     * @param converters
+     */
+    @Override
+    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+        converters.add(converters());
+    }
+
+    /**
      * 添加页面跳转
      * @param registry
      */
@@ -53,6 +75,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter{
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/index").setViewName("/index");
         registry.addViewController("/toUpload").setViewName("/upload");
+        registry.addViewController("/converter").setViewName("/converter");
     }
 
     @Bean  //配置拦截器的Bean
